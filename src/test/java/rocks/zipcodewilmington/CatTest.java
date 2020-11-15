@@ -79,6 +79,16 @@ public class CatTest {
         Assert.assertEquals(expected, actual);
     }
 
+    @Test
+    public void testGetId(){
+        Cat cat = new Cat(null, null, 0);
+        int expectedId = 0;
+
+        int actualId = cat.getId();
+
+        Assert.assertEquals(expectedId, actualId);
+    }
+
     // TODO - Create test to check Animal inheritance; google search `java instanceof keyword`
     @Test
     public void implementTest() {
@@ -91,6 +101,8 @@ public class CatTest {
         // then
         Assert.assertTrue(outcome);
     }
+
+
 
     // TODO - Create test to check Mammal inheritance; google search `java instanceof keyword`
     @Test

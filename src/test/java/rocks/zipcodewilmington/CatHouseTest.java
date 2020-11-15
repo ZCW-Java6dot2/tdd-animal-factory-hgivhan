@@ -1,6 +1,7 @@
 package rocks.zipcodewilmington;
 
 import org.junit.Assert;
+import org.junit.Before;
 import org.junit.Test;
 import rocks.zipcodewilmington.animals.Cat;
 import rocks.zipcodewilmington.animals.animal_storage.CatHouse;
@@ -10,15 +11,16 @@ import rocks.zipcodewilmington.animals.animal_storage.CatHouse;
  */
 public class CatHouseTest {
     // TODO - Create tests for `void add(Cat cat)`
+
     @Test
     public void addTest() {
         // given
         Cat expected = new Cat();
-        Integer id = expected.getId();
+        int expectedId = expected.getId();
 
         // when
         CatHouse.add(expected);
-        Cat actual = CatHouse.getCatById(id);
+        Cat actual = CatHouse.getCatById(expectedId);
 
         // then
         Assert.assertEquals(expected, actual);
@@ -55,6 +57,18 @@ public class CatHouseTest {
 
         // then
         Assert.assertNull(retrievedCat);
+    }
+
+    @Test
+    public void getCatByIdTest(){
+        Cat cat = new Cat(null, null, 101);
+        int expectedId = 101;
+
+        Cat expectedCat = CatHouse.getCatById(expectedId);
+        Cat actualCat = CatHouse.getCatById(12);
+
+        Assert.assertEquals(expectedCat, actualCat);
+
     }
 
     // TODO - Create tests for `Integer getNumberOfCats()`
